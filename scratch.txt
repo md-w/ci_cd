@@ -1,0 +1,6 @@
+docker build . -f jenkinsmaster.Dockerfile -t jenkinsmaster
+docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 --restart always --add-host=git.videonetics.com:172.16.1.93 --name=jenkinsmaster jenkinsmaster
+
+
+docker build . -f jenkinsagent.Dockerfile -t jenkinsagent
+docker run --rm --init -v jenkins_build:/home/jenkins/agent --add-host=git.videonetics.com:172.16.1.93 --add-host=jenkins.videonetics.com:10.0.0.5 -v /var/run/docker.sock:/var/run/docker.sock --name=jenkinsagent jenkinsagent -url http://jenkins.videonetics.com:8080 -workDir=/home/jenkins/agent 1d71e5e94c2ae458767b73cd5f5830a88c60e7f2a4ed8c26c3d0f050b97c616f agent1

@@ -1,0 +1,15 @@
+jira
+authentication-tokens
+credentials-binding
+greenballs
+workflow-aggregator
+pipeline-model-definition
+github-branch-source
+docker-commons
+docker-workflow
+configuration-as-code
+cloudbees-folder
+build-timeout
+timestamper
+git
+pipeline-stage-view
